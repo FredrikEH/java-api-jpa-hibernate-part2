@@ -24,27 +24,21 @@ public class Book {
     @Column
     private String genre;
 
-    @Column
-    private int authorId;
-
-    @Column
-    private int publisherId;
-
-    /*
     @ManyToOne
     @JoinColumn(name = "author_id", nullable = false)
-    //@JoinColumn(name = "publisher_id", nullable = false)
     @JsonIncludeProperties(value = {"firstName", "lastName", "email", "alive"})
     private Author author;
-    //private Publisher publisher;
 
-     */
+    @ManyToOne
+    @JoinColumn(name = "publisher_id", nullable = false)
+    @JsonIncludeProperties(value = {"name", "location"})
+    private Publisher publisher;
 
-    public Book(String title, String genre, int authorId, int publisherId){
+    public Book(String title, String genre, Author author, Publisher publisher){
         this.title = title;
         this.genre = genre;
-        this.authorId = authorId;
-        this.publisherId = publisherId;
+        this.author = author;
+        this.publisher = publisher;
     }
 
     public Book(int id){

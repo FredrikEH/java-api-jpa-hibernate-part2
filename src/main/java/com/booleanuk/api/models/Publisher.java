@@ -27,12 +27,9 @@ public class Publisher {
     @Column
     private String location;
 
-    /*
-    @OneToMany(mappedBy = "publisher")
+    @OneToMany(mappedBy = "publisher", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnoreProperties("publisher")
-    private List<Book> book;
-
-     */
+    private List<Book> books;
 
     public Publisher(String name, String location){
         this.name = name;

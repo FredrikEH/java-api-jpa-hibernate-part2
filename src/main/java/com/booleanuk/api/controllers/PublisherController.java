@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("publishers")
-public class PublishersController {
+public class PublisherController {
     @Autowired
     private PublisherRepository publisherRepository;
 

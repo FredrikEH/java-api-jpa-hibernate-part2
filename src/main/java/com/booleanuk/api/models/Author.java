@@ -33,12 +33,9 @@ public class Author {
     @Column
     private boolean alive;
 
-    /*
-    @OneToMany(mappedBy = "author")
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnoreProperties("author")
-    private List<Book> book;
-
-     */
+    private List<Book> books;
 
     public Author(String firstName, String lastName, String email, boolean alive){
         this.firstName = firstName;
